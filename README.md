@@ -1,5 +1,11 @@
 # Spring Boot REST API with JPA
 
+Sample REST API project using the following technologies
+- Spring Boot
+- Spring Data JPA
+- MySQL
+- Swagger
+
 ![Alt text](images/github-jpa-001.jpg?raw=true "Step 01")
 ![Alt text](images/github-jpa-002.jpg?raw=true "Step 02")
 ![Alt text](images/github-jpa-003.jpg?raw=true "Step 03")
