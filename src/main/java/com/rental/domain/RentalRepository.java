@@ -10,6 +10,8 @@ public interface RentalRepository extends CrudRepository<Rental, Long> {
 
     List<Rental> findByStreetName(String streetName);
 
+    List<Rental> findByCity(String cityName);
+
     Rental findByRentalId(int rentalId);
 
 }

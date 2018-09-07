@@ -27,4 +27,24 @@ public class  RentalController {
         return rentalRepository.findByRentalId(rentalId);
     }
 
+    @ApiOperation(value = "getRentalByStreetName", nickname = "getRentalByStreetName")
+    @RequestMapping(method = RequestMethod.GET, path="/rentals/street/{streetName}", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = Rental.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    public List<Rental> getRentalByStreetName(@PathVariable String streetName) {
+        return rentalRepository.findByStreetName(streetName);
+    }
+
+    @ApiOperation(value = "getRentalByCity", nickname = "getRentalByCity")
+    @RequestMapping(method = RequestMethod.GET, path="/rentals/city/{cityName}", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = Rental.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    public List<Rental> getRentalByCity(@PathVariable String cityName) {
+        return rentalRepository.findByCity(cityName);
+    }
+
 }
