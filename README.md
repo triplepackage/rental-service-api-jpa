@@ -1,5 +1,7 @@
 # Spring Boot REST API with JPA
 
+![Alt text](images/github-jpa-001.jpg?raw=true "Step 01")
+
 <pre>
 Johns-MBP:rental-service-api-jpa admin$ ./gradlew
 
