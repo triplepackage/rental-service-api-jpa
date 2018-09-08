@@ -16,7 +16,7 @@ Sample REST API project using the following technologies
 ![Alt text](images/github-jpa-007.jpg?raw=true "Step 07")
 ![Alt text](images/github-jpa-008.jpg?raw=true "Step 08")
 ![Alt text](images/github-jpa-009.jpg?raw=true "Step 09")
-![Alt text](images/github-jpa-010.jpg?raw=true "Step 10")
+![Alt text](images/github-jpa-011.jpg?raw=true "Step 10")
 
 
 ## Running Docker Container
@@ -175,6 +175,8 @@ Sat Sep 08 10:31:34 GMT 2018 WARN: Establishing SSL connection without server's 
 2018-09-08 10:31:37.869  INFO 6 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
 2018-09-08 10:31:37.876  INFO 6 --- [           main] com.rental.RentalApplication             : Started RentalApplication in 7.928 seconds (JVM running for 8.603)
 </pre>
+
+![Alt text](images/github-jpa-011.jpg?raw=true "Step 10")
 
 ## Helpful Command Line Stuff
 
