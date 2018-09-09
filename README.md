@@ -178,6 +178,9 @@ Sat Sep 08 10:31:34 GMT 2018 WARN: Establishing SSL connection without server's 
 
 ![Alt text](images/github-jpa-011.jpg?raw=true "Step 10")
 
+Test Endpoint Using Postman
+![Alt text](images/github-jpa-012.jpg?raw=true "Step 10")
+
 ## Helpful Command Line Stuff
 
 <pre>
