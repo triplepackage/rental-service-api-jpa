@@ -15,6 +15,8 @@ import java.util.*;
 public class  RentalController {
     @Autowired
     private RentalRepository rentalRepository;
+    @Autowired
+    private TenantRepository tenantRepository;
 
 
     @ApiOperation(value = "rental", nickname = "rental")
@@ -54,6 +56,6 @@ public class  RentalController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     public Tenant createTenant(@RequestBody Tenant tenant) {
-        return tenant;
+        return tenantRepository.save(tenant);
     }
 }
