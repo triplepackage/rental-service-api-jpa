@@ -18,8 +18,7 @@ public class  RentalController {
     @Autowired
     private TenantRepository tenantRepository;
 
-
-    @ApiOperation(value = "rental", nickname = "rental")
+    @ApiOperation(value = "Get Rental Properties By ID", notes = "Get Rental Properties By ID")
     @RequestMapping(method = RequestMethod.GET, path="/rental/{rentalId}", produces = "application/json")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = Rental.class),
@@ -29,7 +28,7 @@ public class  RentalController {
         return rentalRepository.findByRentalId(rentalId);
     }
 
-    @ApiOperation(value = "getRentalByStreetName", nickname = "getRentalByStreetName")
+    @ApiOperation(value = "Get Rental Properties By Street Name", notes = "Get Rental Properties By Street Name")
     @RequestMapping(method = RequestMethod.GET, path="/rentals/street/{streetName}", produces = "application/json")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = Rental.class),
@@ -39,7 +38,7 @@ public class  RentalController {
         return rentalRepository.findByStreetName(streetName);
     }
 
-    @ApiOperation(value = "getRentalByCity", nickname = "getRentalByCity")
+    @ApiOperation(value = "Get Rental Properties By City", notes = "Get Rental Properties By City")
     @RequestMapping(method = RequestMethod.GET, path="/rentals/city/{cityName}", produces = "application/json")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = Rental.class),
@@ -49,7 +48,7 @@ public class  RentalController {
         return rentalRepository.findByCity(cityName);
     }
 
-    @ApiOperation(value = "createTenant", nickname = "createTenant")
+    @ApiOperation(value = "Create Tenant", notes = "Create Tenant")
     @RequestMapping(method = RequestMethod.POST, path="/tenant/", produces = "application/json")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = Tenant.class),
