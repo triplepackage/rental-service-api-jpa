@@ -47,4 +47,13 @@ public class  RentalController {
         return rentalRepository.findByCity(cityName);
     }
 
+    @ApiOperation(value = "createTenant", nickname = "createTenant")
+    @RequestMapping(method = RequestMethod.POST, path="/tenant/", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = Tenant.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    public Tenant createTenant(@RequestBody Tenant tenant) {
+        return tenant;
+    }
 }
