@@ -1,6 +1,7 @@
 package com.rental.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * POJO representing Rental entity.
@@ -71,6 +72,10 @@ public class Rental {
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="rentalId")
+    private List<Tenant> tenantList;
 
     @Override
     public String toString(){

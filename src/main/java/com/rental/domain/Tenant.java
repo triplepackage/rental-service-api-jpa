@@ -9,7 +9,7 @@ public class Tenant {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "`id`")
-    private Integer id;
+    private Integer tenantId;
 
     @Column(name = "`name`", length = 255)
     private String name;
@@ -33,12 +33,13 @@ public class Tenant {
         this.rentalId = rentalId;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getTenantIdenantId() {
+        return tenantId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setTenantId(Integer id) {
+        this.tenantId = id;
     }
+
 }
 

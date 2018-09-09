@@ -24,8 +24,10 @@ public class  RentalController {
             @ApiResponse(code = 200, message = "Success", response = Rental.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    public Rental rental(@PathVariable int rentalId) {
-        return rentalRepository.findByRentalId(rentalId);
+    public Rental getRentalById(@PathVariable int rentalId) {
+
+        Rental rental = rentalRepository.findByRentalId(rentalId);
+        return rental;
     }
 
     @ApiOperation(value = "Get Rental Properties By Street Name", notes = "Get Rental Properties By Street Name")
