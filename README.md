@@ -324,7 +324,7 @@ logging.level.org.hibernate.type=TRACE
 </pre>
 
 For debugging in IntelliJ, set the environment variables as such:
-![Alt text](images/github-jpa-012.jpg?raw=true "Step 10")
+![Alt text](images/github-jpa-013.jpg?raw=true "Step 10")
 
 If running via Docker container, do the following:
 <pre>
