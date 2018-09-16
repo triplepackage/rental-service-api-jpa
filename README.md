@@ -330,3 +330,39 @@ If running via Docker container, do the following:
 <pre>
 docker run -e SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.4:3306/rental -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=xxxxx -p 8080:8080 bc0dcce8f41e -t --name rental-service-api-jpa
 </pre>
+
+When building the Docker container via IntelliJ terminal, be sure to set the database environment variable. Otherwise, the build will fail.
+<pre>
+Johns-MBP:rental-service-api-jpa admin$ export SPRING_DATASOURCE_URL=jdbc:mysql://127.0.0.1:3306/rental
+Johns-MBP:rental-service-api-jpa admin$ export SPRING_DATASOURCE_USERNAME=root
+Johns-MBP:rental-service-api-jpa admin$ export SPRING_DATASOURCE_PASSWORD=xxxx
+Johns-MBP:rental-service-api-jpa admin$ ./gradlew buildDocker 
+
+> Task :buildDocker
+Sending build context to Docker daemon  77.23MB
+
+Step 1/6 : FROM frolvlad/alpine-oraclejdk8:slim
+ ---> c887553bc35c
+Step 2/6 : VOLUME /tmp
+ ---> Using cache
+ ---> dadfad5cb181
+Step 3/6 : ADD rental-service-api-0.0.1-SNAPSHOT.jar app.jar
+ ---> Using cache
+ ---> 927824028b80
+Step 4/6 : RUN sh -c 'touch /app.jar'
+ ---> Using cache
+ ---> beeebf9e047f
+Step 5/6 : ENV JAVA_OPTS=""
+ ---> Using cache
+ ---> 06763f0732a4
+Step 6/6 : ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+ ---> Using cache
+ ---> f3066e77b0cf
+Successfully built f3066e77b0cf
+Successfully tagged com.rental/rental-service-api:0.0.1-SNAPSHOT
+
+
+BUILD SUCCESSFUL in 2s
+6 actionable tasks: 1 executed, 5 up-to-date
+Johns-MBP:rental-service-api-jpa admin$ 
+</pre>
