@@ -309,3 +309,24 @@ To https://github.com/triplepackage/rental-service-api-jpa.git
 
 
 </pre>
+# Use Environment Variables For Database Settings
+Modify application.settings as follows:
+<pre>
+spring.datasource.url=${SPRING_DATASOURCE_URL}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto=update
+server.port=8080
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type=TRACE
+</pre>
+
+For debugging in IntelliJ, set the environment variables as such:
+![Alt text](images/github-jpa-011.jpg?raw=true "Step 10")
+
+If running via Docker container, do the following:
+<pre>
+docker run -e SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.4:3306/rental -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=xxxxx -p 8080:8080 bc0dcce8f41e -t --name rental-service-api-jpa
+</pre>
