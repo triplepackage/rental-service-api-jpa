@@ -328,7 +328,7 @@ For debugging in IntelliJ, set the environment variables as such:
 
 If running via Docker container, do the following:
 <pre>
-docker run -e SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.4:3306/rental -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=xxxxx -p 8080:8080 bc0dcce8f41e -t --name rental-service-api-jpa
+docker run -e SPRING_DATASOURCE_URL=jdbc:mysql://172.17.0.4:3306/rental?useSSL=false -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=xxxxx -p 8080:8080 bc0dcce8f41e -t --name rental-service-api-jpa
 </pre>
 
 When building the Docker container via IntelliJ terminal, be sure to set the database environment variable. Otherwise, the build will fail.
