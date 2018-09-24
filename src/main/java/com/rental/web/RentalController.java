@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiResponses;
 import javax.validation.Valid;
 import java.util.*;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class  RentalController {
