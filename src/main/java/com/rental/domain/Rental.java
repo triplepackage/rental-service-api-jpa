@@ -2,6 +2,11 @@ package com.rental.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * POJO representing Rental entity.
@@ -9,6 +14,8 @@ import java.util.List;
 @Entity
 @Table(name = "rental")
 public class Rental {
+
+    private static final Logger logger = LoggerFactory.getLogger(Rental.class);
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +40,21 @@ public class Rental {
     @Column(name = "`Zip Code`", length = 255)
     private int zipCode;
 
+    @Column(name = "`Issue Date`", length = 255)
+    private String issueDate;
+
+    @Column(name = "`Expiration Date`", length = 255)
+    private String expirationDate;
+
+    @Column(name = "`Record Status`", length = 255)
+    private String recordStatus;
+
+    @Column(name = "`Address x coordinate`", length = 255)
+    private String addressXCoordinate;
+
+    @Column(name = "`Address y coordinate`", length = 255)
+    private String addressYCoordinate;
+
     public String getRecordId() {
         return recordId;
     }
@@ -41,9 +63,13 @@ public class Rental {
         this.recordId = recordId;
     }
 
+    public Integer getStreetNumber() { return streetNumber; }
+
     public void setStreetNumber(Integer streetNumber) {
         this.streetNumber = streetNumber;
     }
+
+    public String getStreetName() {return streetName;}
 
     public void setStreetName(String streetName) {
         this.streetName = streetName;
@@ -72,6 +98,52 @@ public class Rental {
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
+
+    public Date getIssueDate(){
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZ");
+        try {
+            return formatter.parse(issueDate);
+        }
+        catch(Exception exception)
+        {
+            logger.error("An exception occurred. " + exception.getMessage());
+        }
+        return new Date();
+    }
+
+    public void setIssueDate(String issueDate){ this.issueDate = issueDate;}
+
+    public Date getExpirationDate(){
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZ");
+        try {
+            return formatter.parse(expirationDate);
+        }
+        catch(Exception exception)
+        {
+            logger.error("An exception occurred. " + exception.getMessage());
+        }
+        return new Date();
+    }
+
+    public void setExpirationDate(String expirationDate){ this.expirationDate = expirationDate;}
+
+    public String getRecordStatus() {
+        return recordStatus;
+    }
+
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
+    }
+
+    public String getAddressXCoordinate(){ return addressXCoordinate;}
+
+    public void setAddressXCoordinate(String addressXCoordinate){ this.addressXCoordinate = addressXCoordinate;}
+
+    public String getAddressYCoordinate(){ return addressYCoordinate;}
+
+    public void setAddressYCoordinate(String addressYCoordinate){ this.addressYCoordinate = addressYCoordinate;}
+
+    public List<Tenant> getTenantList(){ return tenantList; }
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="rentalId")
