@@ -1,12 +1,13 @@
 package com.rental.domain;
 
-import javax.persistence.*;
-import java.util.List;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * POJO representing Rental entity.
@@ -141,7 +142,7 @@ public class Rental {
 
     public String getAddressYCoordinate(){ return addressYCoordinate;}
 
-    public void setAddressYCoordinate(String addressYCoordinate){ this.addressYCoordinate = addressYCoordinate;}
+    public void setAddressYCoordinate(String addressYCoordinate){ this.addressYCoordinate = addressXCoordinate;}
 
     public List<Tenant> getTenantList(){ return tenantList; }
 
