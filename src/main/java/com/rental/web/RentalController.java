@@ -62,6 +62,16 @@ public class  RentalController {
         return rentalRepository.findRentalsByCity();
     }
 
+    @ApiOperation(value = "Get Rental Count By Record Status", notes = "Get Rental Count By Record Status")
+    @GetMapping(path="/rentals/groupedby/recordStatus", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = RentalByStat.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    public List<RentalByStat> getRentalsGroupedByRecordStatus() {
+        return rentalRepository.findRentalsByRecordStatus();
+    }
+
     @ApiOperation(value = "Create Tenant", notes = "Create Tenant")
     @PostMapping(path="/tenant/", produces = "application/json")
     @ApiResponses(value = {
