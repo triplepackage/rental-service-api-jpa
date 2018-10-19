@@ -101,9 +101,9 @@ public class Rental {
     }
 
     public Date getIssueDate(){
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZ");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            return formatter.parse(issueDate);
+            return formatter.parse(issueDate + 'Z');
         }
         catch(Exception exception)
         {
@@ -114,10 +114,11 @@ public class Rental {
 
     public void setIssueDate(String issueDate){ this.issueDate = issueDate;}
 
+
     public Date getExpirationDate(){
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZ");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            return formatter.parse(expirationDate);
+            return formatter.parse(expirationDate + 'Z');
         }
         catch(Exception exception)
         {
