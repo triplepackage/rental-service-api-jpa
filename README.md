@@ -1,5 +1,7 @@
 # Spring Boot REST API with JPA
 
+http://ec2-34-204-247-182.compute-1.amazonaws.com:8080/swagger-ui.html
+
 Sample REST API project using the following technologies
 - Spring Boot
 - Spring Data JPA
