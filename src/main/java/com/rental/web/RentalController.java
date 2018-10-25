@@ -1,5 +1,6 @@
 package com.rental.web;
 
+import com.utilities.*;
 import com.rental.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -69,7 +70,23 @@ public class  RentalController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     public List<RentalByStat> getRentalsGroupedByRecordStatus() {
-        return rentalRepository.findRentalsByRecordStatus();
+        return rentalRepository.getRentalsByRecordStatus();
+    }
+
+    @ApiOperation(value = "Get Rentals By Expiration Date", notes = "Get Rentals by Expiration Date")
+    @GetMapping(path="/rentals/groupedby/expirationdate", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = RentalByStat.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    public List<RentalByStat> getRentalsGroupedByExpirationDate() {
+        List<RentalByStat> expirationDates = new ArrayList<>();
+
+        for (RentalByStat rentalDate : rentalRepository.getRentalsByExpirationDate()) {
+            expirationDates.add(new RentalByStat(DateUtilities.fixUTCDateToString(rentalDate.getStat()), rentalDate.getCount()));
+        }
+                
+        return expirationDates;
     }
 
     @ApiOperation(value = "Create Tenant", notes = "Create Tenant")

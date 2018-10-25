@@ -1,11 +1,10 @@
 package com.rental.domain;
 
+import com.utilities.DateUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -101,30 +100,14 @@ public class Rental {
     }
 
     public Date getIssueDate(){
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            return formatter.parse(issueDate + 'Z');
-        }
-        catch(Exception exception)
-        {
-            logger.error("An exception occurred. " + exception.getMessage());
-        }
-        return new Date();
+        return DateUtilities.fixUTCDate(issueDate);
     }
 
     public void setIssueDate(String issueDate){ this.issueDate = issueDate;}
 
 
     public Date getExpirationDate(){
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            return formatter.parse(expirationDate + 'Z');
-        }
-        catch(Exception exception)
-        {
-            logger.error("An exception occurred. " + exception.getMessage());
-        }
-        return new Date();
+        return DateUtilities.fixUTCDate(expirationDate);
     }
 
     public void setExpirationDate(String expirationDate){ this.expirationDate = expirationDate;}
