@@ -21,6 +21,27 @@ Sample REST API project using the following technologies
 ![Alt text](images/github-jpa-011.jpg?raw=true "Step 10")
 
 
+## Running From IntelliJ
+
+Make sure the properties file is configured correctly
+
+<pre>
+spring.datasource.url=${SPRING_DATASOURCE_URL}
+spring.datasource.username=${SPRING_DATASOURCE_USERNAME}
+spring.datasource.password=${SPRING_DATASOURCE_PASSWORD}
+spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto=update
+server.port=8080
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type=TRACE
+spring.jackson.date-format=MM-dd-yyyy
+</pre>
+
+Note the following run configuration
+
+![Alt text](images/github-jpa-014.jpg?raw=true "Run configuration")
+
 ## Running Docker Container
 
 Note that if you're MySql instance is running inside a Docker container, you will need to update the database url host in application.properties
