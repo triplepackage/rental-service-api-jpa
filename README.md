@@ -42,6 +42,10 @@ Note the following run configuration
 
 ![Alt text](images/github-jpa-014.jpg?raw=true "Run configuration")
 
+Navigate to the Swagger Docs
+
+![Alt text](images/github-jpa-015.jpg?raw=true "Swagger")
+
 ## Running Docker Container
 
 Note that if you're MySql instance is running inside a Docker container, you will need to update the database url host in application.properties
