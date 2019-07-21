@@ -18,7 +18,7 @@ public class Rental {
     private static final Logger logger = LoggerFactory.getLogger(Rental.class);
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "`_id`")
     private Integer rentalId;
 
@@ -54,6 +54,12 @@ public class Rental {
 
     @Column(name = "`Address y coordinate`", length = 255)
     private String addressYCoordinate;
+
+    public Integer getRentalId () { return rentalId;}
+
+    public void setRentalId(int rentalId){
+        this.rentalId = rentalId;
+    }
 
     public String getRecordId() {
         return recordId;
@@ -130,8 +136,8 @@ public class Rental {
 
     public List<Tenant> getTenantList(){ return tenantList; }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="rentalId")
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Tenant.class)
+    @JoinColumn(name="rentalId", insertable = false, updatable = false)
     private List<Tenant> tenantList;
 
     @Override
