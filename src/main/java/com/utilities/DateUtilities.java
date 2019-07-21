@@ -5,6 +5,9 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+/**
+ * General date helper utilities
+ */
 public class DateUtilities {
     public static String fixUTCDateToString(String expirationDate){
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

@@ -98,4 +98,14 @@ public class  RentalController {
     public Tenant createTenant(@Valid @RequestBody Tenant tenant) {
         return tenantRepository.save(tenant);
     }
+
+    @ApiOperation(value = "Update Rental", notes = "Update Rental")
+    @PostMapping(path="/rental/", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = Rental.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    public Rental updateRental(@Valid @RequestBody Rental rental) {
+        return rentalRepository.save(rental);
+    }
 }

@@ -18,6 +18,8 @@ public interface RentalRepository extends CrudRepository<Rental, Long> {
 
     Rental findByRentalId(int rentalId);
 
+    Rental save(Rental rental);
+
     @Query("SELECT new com.rental.domain.RentalByStat(upper(r.city), COUNT(r)) from Rental r GROUP BY upper(r.city)")
     ArrayList<RentalByStat> findRentalsByCity();
 
