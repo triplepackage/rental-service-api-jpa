@@ -109,8 +109,9 @@ public class Rental {
         return DateUtilities.fixUTCDate(issueDate);
     }
 
-    public void setIssueDate(String issueDate){ this.issueDate = issueDate;}
-
+    public void setIssueDate(String issueDate){
+        this.issueDate = issueDate;
+    }
 
     public Date getExpirationDate(){
         return DateUtilities.fixUTCDate(expirationDate);

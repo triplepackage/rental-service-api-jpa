@@ -1,5 +1,6 @@
 package com.rental.domain;
 
+import com.utilities.DateUtilities;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,5 +30,11 @@ public class RentalTests {
     @Test
     public void RentalCityTest() {
         assertTrue(_rental.getCity() == "nottingham");
+    }
+
+    @Test
+    public void isUTCFormatTest()
+    {
+        assertTrue(DateUtilities.isUTCFormat("2014-04-28T00:00:00.000"));
     }
 }
